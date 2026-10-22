@@ -1,0 +1,32 @@
+{
+  "name": "opencode-context-mode-router",
+  "version": "0.2.0",
+  "description": "Routing enforcement for context-mode on OpenCode v2 - keeps raw tool output out of the agent's context window",
+  "type": "module",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "scripts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\"",
+    "install:opencode": "powershell -ExecutionPolicy Bypass -File scripts/install.ps1"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "context-mode",
+    "context-window",
+    "token-savings",
+    "mcp"
+  ],
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}
