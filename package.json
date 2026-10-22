@@ -28,12 +28,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kemi744868-star/Context-Mode.git"
+    "url": "https://github.com/kemi744868-star/Context-Mode-Router.git"
   },
   "bugs": {
-    "url": "https://github.com/kemi744868-star/Context-Mode/issues"
+    "url": "https://github.com/kemi744868-star/Context-Mode-Router/issues"
   },
-  "homepage": "https://github.com/kemi744868-star/Context-Mode#readme",
+  "homepage": "https://github.com/kemi744868-star/Context-Mode-Router#readme",
   "engines": {
     "node": ">=22.5.0"
   }

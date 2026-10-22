@@ -1,6 +1,9 @@
-# opencode-context-mode-router
+# Context-Mode-Router
 
 Routing enforcement for [context-mode](https://github.com/mksglu/context-mode) on **OpenCode v2**.
+
+> This is **not** the upstream context-mode project. It is the missing routing layer that
+> lets context-mode actually do its job on OpenCode v2.
 
 context-mode sandboxes tool output so raw data never enters the agent's context window.
 On Claude Code that works out of the box, because its plugin can intercept tool calls.
@@ -71,8 +74,8 @@ and the MCP server remain context-mode's job.
 2. Install this plugin:
 
 ```powershell
-git clone https://github.com/<you>/opencode-context-mode-router
-cd opencode-context-mode-router
+git clone https://github.com/kemi744868-star/Context-Mode-Router.git
+cd Context-Mode-Router
 powershell -ExecutionPolicy Bypass -File scripts/install.ps1
 ```
 
@@ -149,3 +152,9 @@ npm test          # 31 tests, node --test, no dependencies
 ## License
 
 MIT
+
+## Credits
+
+The sandbox, the FTS5 knowledge base and the `ctx_*` tools are
+[context-mode](https://github.com/mksglu/context-mode) by Mert Koseoglu (Elastic License 2.0).
+This repository only adds the routing layer that OpenCode v2 was missing.
