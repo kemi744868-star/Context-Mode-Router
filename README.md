@@ -34,13 +34,18 @@ callable. What is missing is the part that makes the sandbox worth having: **rou
 enforcement**. Nothing tells the model to prefer `ctx_execute_file` over `read`, so it
 keeps reading whole files into the context.
 
-Measured on a 95 KB file, same model, same question:
+Measured on a 95 KB file, same model, same question, one run each:
 
 | | tool output into context | input tokens |
 |---|---|---|
 | context-mode installed, no routing | 56,681 B | 23,608 |
 | with this plugin | 646 B | 4,415 |
 | | **-98.9%** | **-81%** |
+
+The tool-output number is the stable one: the denied `read` is replaced by a sandboxed
+call that returns only what the code printed (650-750 B across runs). Input tokens vary
+more, because a blocked call costs the model an extra turn - one run took 4,415 tokens,
+another 29,413, depending on how many detours the model took before switching tools.
 
 This plugin re-implements only the routing layer. The sandbox, the FTS5 knowledge base
 and the MCP server remain context-mode's job.
@@ -125,6 +130,12 @@ rules in the project directory, the model still read the whole file. A hard bloc
 but the model then looks for another way - `Get-Content -Raw`, `grep` with a big limit,
 a script that prints the file. This plugin closes the common doors, but the arms race is
 heuristic, not semantic. Expect to add rules as new escape routes show up.
+
+A blocked call is not free either: the model has to spend a turn reading the denial and
+picking a different route. With a weak model that detour can cost more tokens than the
+plain read would have - one run came in at 4,415 input tokens, another at 29,413. The
+block still wins on context pressure, which is the thing that actually breaks a long
+session.
 
 ## Development
 
