@@ -26,6 +26,14 @@
     "token-savings",
     "mcp"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kemi744868-star/Context-Mode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kemi744868-star/Context-Mode/issues"
+  },
+  "homepage": "https://github.com/kemi744868-star/Context-Mode#readme",
   "engines": {
     "node": ">=22.5.0"
   }
